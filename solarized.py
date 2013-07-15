@@ -3,7 +3,7 @@
 """solarized.py
 
 Adusts matplotlibs rcParams to use solarized colors (dark as default).
-You may want to call update_rcparams("light") if you need the light version.
+You may want to call solarize("light") if you need the light version.
 
 """
 
@@ -50,8 +50,8 @@ LIGHT = {"03": COLOR["base3"],
          }
 
 
-def update_rcparams(mode="dark"):
-    """update_rcparams(mode="dark")
+def solarize(mode="dark"):
+    """solarize(mode="dark")
 
     Changes default colors of matplotlib to solarized.
 
@@ -87,4 +87,4 @@ def update_rcparams(mode="dark"):
     pylab.rcParams.update(params)
 
 
-update_rcparams()
+solarize()
