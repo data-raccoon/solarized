@@ -1,0 +1,86 @@
+% beamercolorthemesolarized.sty
+
+% latex beamer solarized color theme
+% modified "crane" by Stephan Porz
+% tested with theme "Frankfurt"
+
+% copy or link this file next to your mytalk.tex file and use
+% \usecolorsheme{solarized} (dark theme by default) or
+% \usecolorsheme[ligth=true]{solarized}
+
+\def\beamer@solarized@true{true}
+
+\DeclareOptionBeamer{light}{\def\beamer@solarized@lightbool{#1}}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\ifx\beamer@solarized@lightbool\beamer@solarized@true
+    % light
+    % changed solarized names
+    \definecolor{base3}{HTML}{002B36}
+    \definecolor{base2}{HTML}{073642}
+    \definecolor{base1}{HTML}{586e75}
+    \definecolor{base0}{HTML}{657b83}
+    \definecolor{base00}{HTML}{839496}
+    \definecolor{base01}{HTML}{93a1a1}
+    \definecolor{base02}{HTML}{EEE8D5}
+    \definecolor{base03}{HTML}{FDF6E3}
+\else
+    % dark
+    % normal solarized names
+    \definecolor{base03}{HTML}{002B36}
+    \definecolor{base02}{HTML}{073642}
+    \definecolor{base01}{HTML}{586e75}
+    \definecolor{base00}{HTML}{657b83}
+    \definecolor{base0}{HTML}{839496}
+    \definecolor{base1}{HTML}{93a1a1}
+    \definecolor{base2}{HTML}{EEE8D5}
+    \definecolor{base3}{HTML}{FDF6E3}
+\fi
+
+\definecolor{yellow}{HTML}{B58900}
+\definecolor{orange}{HTML}{CB4B16}
+\definecolor{red}{HTML}{DC322F}
+\definecolor{magenta}{HTML}{D33682}
+\definecolor{violet}{HTML}{6C71C4}
+\definecolor{blue}{HTML}{268BD2}
+\definecolor{cyan}{HTML}{2AA198}
+\definecolor{green}{HTML}{859900}
+
+% define colors for various elements
+\setbeamercolor{normal text}{fg=base0,bg=base03}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=green}
+\setbeamercolor{structure}{fg=blue}
+
+\setbeamercolor{palette primary}{fg=yellow,bg=base02}
+\setbeamercolor{palette quaternary}{fg=base01,bg=base02}
+
+% not yet set properly
+\setbeamercolor{palette secondary}{fg=orange,bg=base02}
+\setbeamercolor{palette tertiary}{fg=violet,bg=base02}
+% --------------------
+
+\setbeamercolor{titlelike}{parent=palette quaternary}
+
+\setbeamercolor{block title}{fg=blue,bg=base02}
+\setbeamercolor{block title alerted}{use=alerted text,bg=block title.bg}
+\setbeamercolor{block title example}{use=example text,bg=block title.bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=base02}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg}
+
+\setbeamercolor{sidebar}{bg=base02}
+
+\setbeamercolor{palette sidebar primary}{fg=palette primary.fg}
+\setbeamercolor{palette sidebar secondary}{fg=palette secondary.fg}
+\setbeamercolor{palette sidebar tertiary}{fg=palette tertiary.fg}
+\setbeamercolor{palette sidebar quaternary}{fg=palette quaternary.fg}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>
