@@ -13,66 +13,73 @@
 \DeclareOptionBeamer{light}{\def\beamer@solarized@lightbool{#1}}
 \ProcessOptionsBeamer
 
-\mode<presentation>
+\def\beamer@solarized@baseoe{002B36}
+\def\beamer@solarized@baseoz{073642}
+\def\beamer@solarized@baseol{586e75}
+\def\beamer@solarized@baseoo{657b83}
+\def\beamer@solarized@baseo {839496}
+\def\beamer@solarized@basel {93a1a1}
+\def\beamer@solarized@basez {EEE8D5}
+\def\beamer@solarized@basee {FDF6E3}
+
+\definecolor{yellow} {HTML}{B58900}
+\definecolor{orange} {HTML}{CB4B16}
+\definecolor{red}    {HTML}{DC322F}
+\definecolor{magenta}{HTML}{D33682}
+\definecolor{violet} {HTML}{6C71C4}
+\definecolor{blue}   {HTML}{268BD2}
+\definecolor{cyan}   {HTML}{2AA198}
+\definecolor{green}  {HTML}{859900}
 
 \ifx\beamer@solarized@lightbool\beamer@solarized@true
-    % light
-    % changed solarized names
-    \definecolor{base3}{HTML}{002B36}
-    \definecolor{base2}{HTML}{073642}
-    \definecolor{base1}{HTML}{586e75}
-    \definecolor{base0}{HTML}{657b83}
-    \definecolor{base00}{HTML}{839496}
-    \definecolor{base01}{HTML}{93a1a1}
-    \definecolor{base02}{HTML}{EEE8D5}
-    \definecolor{base03}{HTML}{FDF6E3}
+    % light, renamed
+    \definecolor{rebase03}{HTML}{\beamer@solarized@basee}
+    \definecolor{rebase02}{HTML}{\beamer@solarized@basez}
+    \definecolor{rebase01}{HTML}{\beamer@solarized@basel}
+    \definecolor{rebase00}{HTML}{\beamer@solarized@baseo}
+    \definecolor{rebase0} {HTML}{\beamer@solarized@baseoo}
+    \definecolor{rebase1} {HTML}{\beamer@solarized@baseol}
+    \definecolor{rebase2} {HTML}{\beamer@solarized@baseoz}
+    \definecolor{rebase3} {HTML}{\beamer@solarized@baseoe}
 \else
-    % dark
-    % normal solarized names
-    \definecolor{base03}{HTML}{002B36}
-    \definecolor{base02}{HTML}{073642}
-    \definecolor{base01}{HTML}{586e75}
-    \definecolor{base00}{HTML}{657b83}
-    \definecolor{base0}{HTML}{839496}
-    \definecolor{base1}{HTML}{93a1a1}
-    \definecolor{base2}{HTML}{EEE8D5}
-    \definecolor{base3}{HTML}{FDF6E3}
+    % dark, original naming
+    \definecolor{rebase03}{HTML}{\beamer@solarized@baseoe}
+    \definecolor{rebase02}{HTML}{\beamer@solarized@baseoz}
+    \definecolor{rebase01}{HTML}{\beamer@solarized@baseol}
+    \definecolor{rebase00}{HTML}{\beamer@solarized@baseoo}
+    \definecolor{rebase0} {HTML}{\beamer@solarized@baseo}
+    \definecolor{rebase1} {HTML}{\beamer@solarized@basel}
+    \definecolor{rebase2} {HTML}{\beamer@solarized@basez}
+    \definecolor{rebase3} {HTML}{\beamer@solarized@basee}
 \fi
 
-\definecolor{yellow}{HTML}{B58900}
-\definecolor{orange}{HTML}{CB4B16}
-\definecolor{red}{HTML}{DC322F}
-\definecolor{magenta}{HTML}{D33682}
-\definecolor{violet}{HTML}{6C71C4}
-\definecolor{blue}{HTML}{268BD2}
-\definecolor{cyan}{HTML}{2AA198}
-\definecolor{green}{HTML}{859900}
+\mode<presentation>
 
 % define colors for various elements
-\setbeamercolor{normal text}{fg=base0,bg=base03}
+\setbeamercolor{normal text}{fg=rebase0,bg=rebase03}
 \setbeamercolor{alerted text}{fg=red}
 \setbeamercolor{example text}{fg=green}
 \setbeamercolor{structure}{fg=blue}
 
-\setbeamercolor{palette primary}{fg=yellow,bg=base02}
-\setbeamercolor{palette quaternary}{fg=base01,bg=base02}
+\setbeamercolor{palette primary}{fg=yellow,bg=rebase02}
+\setbeamercolor{palette quaternary}{fg=rebase01,bg=rebase02}
 
 % not yet set properly
-\setbeamercolor{palette secondary}{fg=orange,bg=base02}
-\setbeamercolor{palette tertiary}{fg=violet,bg=base02}
+\setbeamercolor{palette secondary}{fg=orange,bg=rebase02}
+\setbeamercolor{palette tertiary}{fg=violet,bg=rebase02}
 % --------------------
 
 \setbeamercolor{titlelike}{parent=palette quaternary}
 
-\setbeamercolor{block title}{fg=blue,bg=base02}
+\setbeamercolor{block title}{fg=blue,bg=rebase02}
 \setbeamercolor{block title alerted}{use=alerted text,bg=block title.bg}
 \setbeamercolor{block title example}{use=example text,bg=block title.bg}
 
-\setbeamercolor{block body}{parent=normal text,use=block title,bg=base02}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=rebase02}
 \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg}
 \setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg}
 
-\setbeamercolor{sidebar}{bg=base02}
+\setbeamercolor{sidebar}{bg=rebase02}
 
 \setbeamercolor{palette sidebar primary}{fg=palette primary.fg}
 \setbeamercolor{palette sidebar secondary}{fg=palette secondary.fg}
