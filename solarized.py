@@ -29,7 +29,7 @@ COLOR = {"base03":  "#002B36",
          "green":   "#859900"
          }
 
-# rebase: using original naming for dark, renamed for light
+# rebase: original naming for dark, renamed for light
 DARK = {"03": COLOR["base03"],
         "02": COLOR["base02"],
         "01": COLOR["base01"],
