@@ -172,7 +172,7 @@ def xyz_to_cielab(val_x, val_y, val_z):
 
     if var_z > 0.008856:
         var_z = var_z ** (1. / 3.)
-    else
+    else:
         var_z = 7.787 * var_z + 16. / 116.
 
     cie_l = 116 * var_y - 16
@@ -180,6 +180,28 @@ def xyz_to_cielab(val_x, val_y, val_z):
     cie_b = 200 * (var_y - var_z)
 
     return cie_l, cie_a, cie_b
+
+
+def rgb_to_cielab(val_r, val_g, val_b):
+    """ TODO
+    convenience function
+    CIE-L*ab not Hunter
+    """
+    val_x, val_y, val_z = rgb_to_xyz(val_r, val_g, val_b)
+    cie_l, cie_a, cie_b = xyz_to_cielab(val_x, val_y, val_z)
+    
+    return cie_l, cie_a, cie_b
+
+
+def cielab_to_rgb(cie_l, cie_a, cie_b):
+    """ TODO
+    convenience function
+    CIE-L*ab not Hunter
+    """
+    val_x, val_y, val_z = cielab_to_xyz(cie_l, cie_a, cie_b)
+    val_r, val_g, val_b = xyz_to_rgb(val_x, val_y, val_z)
+
+    return val_r, val_g, val_b
 
 
 def sol_from_base():
