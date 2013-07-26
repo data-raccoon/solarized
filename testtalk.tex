@@ -1,0 +1,129 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+%\documentclass{beamer}
+%\documentclass[table]{beamer}
+
+
+
+%xetex
+\usefonttheme{professionalfonts}
+
+\usepackage{xltxtra} % loads fixltx2e, etex, fontspec, xunicode …
+\usepackage{array, color, enumerate, fixmath, gensymb, graphicx, graphics,
+    icomma, listings, mathcomp, mathtools, mathdots, multirow, ngerman,
+    nicefrac, placeins, rotating, tabularx, units, xtab, lipsum}
+\usepackage[math-style=ISO]{unicode-math}
+
+% fonts
+\setsansfont[Mapping=tex-text]{Komika Text} % normal font
+\newcommand{\mschrift}{XITS Math} % math font
+\setmathfont[Scale=MatchUppercase]{\mschrift} % proportion math/normal, orientation: uppercase
+\setmathfont[Scale=MatchUppercase, range=\mathit/{Latin, latin}->\mathsfit]{\mschrift} %sans
+\setmathfont[range=\mathup/{num}]{Komika Text} %numbers in math
+
+% babel replacement
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=new, latesthyphen=true]{german}
+
+% settings
+\usetheme{Frankfurt}
+\usecolortheme{solarized}
+\setbeamertemplate{navigation symbols}{}
+
+% logo
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+%xetex end
+
+
+
+% titlepage information
+\title{Test Solarized}
+\subtitle{}
+\author{Stephan~Porz}
+\institute[Universität Bonn]{}
+\date[]{}
+
+
+
+\begin{document}
+
+%fontsize
+%     \tiny
+%     \scriptsize
+%     \footnotesize
+%     \small
+%     \normalsize
+%     \large
+%     \Large
+%     \LARGE
+%     \huge
+%     \Huge
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+
+
+%\begin{frame}{}
+\begin{frame}{Contents}
+    \tableofcontents
+\end{frame}
+
+
+
+\section{Section 1}
+\subsection{Subsection 1}
+\begin{frame}{Page 1}
+    This is some text.
+    \begin{itemize}
+        \item This is item 1
+        \item This is item 2
+        \begin{itemize}
+            \item Second intend
+        \end{itemize}			
+        \item And another item...
+    \end{itemize}
+    Even more text\footnote{Stuff you really should not be able to read.}.
+\end{frame}
+
+\begin{frame}{Page 2}
+    \begin{block}{This is important}
+        Text in the block.\\
+	Second line in the block.
+    \end{block}
+    \begin{exampleblock}{Just an illustrative example}
+        This is an example of block. \\
+	Go no further!
+    \end{exampleblock}
+    \begin{alertblock}{This is the hard stuff}
+        So hard, you can't miss it! \\
+	Exclamation mark!11!1oneleven11!
+    \end{alertblock}
+\end{frame}
+
+
+\subsection{Subsection 1}
+
+\begin{frame}{Page 3}
+    Nothing to see here. \\
+    Move along!
+\end{frame}
+
+
+
+\section{Section 2}
+\subsection{Subsection 3}
+\begin{frame}{Page 4}
+    You shouldn't be here!
+\end{frame}
+
+
+
+%\section*{}
+%\begin{frame}{}
+\begin{frame}{Contents}
+    \tableofcontents
+\end{frame}
+
+\end{document}
