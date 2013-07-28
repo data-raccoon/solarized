@@ -9,6 +9,8 @@
 % \usecolorsheme{solarized} (dark theme by default) or
 % \usecolorsheme[ligth=true]{solarized}
 
+\mode<presentation>
+
 \def\beamer@solarized@true{true}
 
 \DeclareOptionBeamer{light}{\def\beamer@solarized@lightbool{#1}}
@@ -18,19 +20,19 @@
 \def\beamer@solarized@baseoz{073642}
 \def\beamer@solarized@baseol{586e75}
 \def\beamer@solarized@baseoo{657b83}
-\def\beamer@solarized@baseo {839496}
-\def\beamer@solarized@basel {93a1a1}
-\def\beamer@solarized@basez {EEE8D5}
-\def\beamer@solarized@basee {FDF6E3}
+\def\beamer@solarized@baseo{839496}
+\def\beamer@solarized@basel{93a1a1}
+\def\beamer@solarized@basez{EEE8D5}
+\def\beamer@solarized@basee{FDF6E3}
 
-\definecolor{yellow} {HTML}{B58900}
-\definecolor{orange} {HTML}{CB4B16}
-\definecolor{red}    {HTML}{DC322F}
+\definecolor{yellow}{HTML}{B58900}
+\definecolor{orange}{HTML}{CB4B16}
+\definecolor{red}{HTML}{DC322F}
 \definecolor{magenta}{HTML}{D33682}
-\definecolor{violet} {HTML}{6C71C4}
-\definecolor{blue}   {HTML}{268BD2}
-\definecolor{cyan}   {HTML}{2AA198}
-\definecolor{green}  {HTML}{859900}
+\definecolor{violet}{HTML}{6C71C4}
+\definecolor{blue}{HTML}{268BD2}
+\definecolor{cyan}{HTML}{2AA198}
+\definecolor{green}{HTML}{859900}
 
 \ifx\beamer@solarized@lightbool\beamer@solarized@true
     % light, renamed
@@ -38,37 +40,32 @@
     \definecolor{rebase02}{HTML}{\beamer@solarized@basez}
     \definecolor{rebase01}{HTML}{\beamer@solarized@basel}
     \definecolor{rebase00}{HTML}{\beamer@solarized@baseo}
-    \definecolor{rebase0} {HTML}{\beamer@solarized@baseoo}
-    \definecolor{rebase1} {HTML}{\beamer@solarized@baseol}
-    \definecolor{rebase2} {HTML}{\beamer@solarized@baseoz}
-    \definecolor{rebase3} {HTML}{\beamer@solarized@baseoe}
+    \definecolor{rebase0}{HTML}{\beamer@solarized@baseoo}
+    \definecolor{rebase1}{HTML}{\beamer@solarized@baseol}
+    \definecolor{rebase2}{HTML}{\beamer@solarized@baseoz}
+    \definecolor{rebase3}{HTML}{\beamer@solarized@baseoe}
 \else
     % dark, original naming
     \definecolor{rebase03}{HTML}{\beamer@solarized@baseoe}
     \definecolor{rebase02}{HTML}{\beamer@solarized@baseoz}
     \definecolor{rebase01}{HTML}{\beamer@solarized@baseol}
     \definecolor{rebase00}{HTML}{\beamer@solarized@baseoo}
-    \definecolor{rebase0} {HTML}{\beamer@solarized@baseo}
-    \definecolor{rebase1} {HTML}{\beamer@solarized@basel}
-    \definecolor{rebase2} {HTML}{\beamer@solarized@basez}
-    \definecolor{rebase3} {HTML}{\beamer@solarized@basee}
+    \definecolor{rebase0}{HTML}{\beamer@solarized@baseo}
+    \definecolor{rebase1}{HTML}{\beamer@solarized@basel}
+    \definecolor{rebase2}{HTML}{\beamer@solarized@basez}
+    \definecolor{rebase3}{HTML}{\beamer@solarized@basee}
 \fi
 
-\mode<presentation>
-
-% define colors for various elements
-\setbeamercolor{normal text}{fg=rebase0,bg=rebase03}
-\setbeamercolor{alerted text}{fg=red}
-\setbeamercolor{example text}{fg=green}
 \setbeamercolor{structure}{fg=blue}
 
 \setbeamercolor{palette primary}{fg=yellow,bg=rebase02}
+\setbeamercolor{palette secondary}{fg=magenta,bg=rebase02}
+\setbeamercolor{palette tertiary}{fg=violet,bg=rebase02}
 \setbeamercolor{palette quaternary}{fg=rebase01,bg=rebase02}
 
-% not yet set properly
-\setbeamercolor{palette secondary}{fg=orange,bg=rebase02}
-\setbeamercolor{palette tertiary}{fg=violet,bg=rebase02}
-% --------------------
+\setbeamercolor{normal text}{fg=rebase0,bg=rebase03}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=green}
 
 \setbeamercolor{titlelike}{parent=palette quaternary}
 
