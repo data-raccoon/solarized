@@ -2,7 +2,7 @@
 
 """solarized.py
 
-Adusts matplotlibs rcParams to use solarized colors (dark as default).
+Import to adust matplotlibs rcParams to use solarized colors (dark as default).
 You may want to call solarize("light") if you need the light version.
 
 """
@@ -88,3 +88,4 @@ def solarize(mode="dark"):
 
 
 solarize()
+
