@@ -41,6 +41,7 @@ for theme in themes:
     os.system("cp " + path_tex + " " + path_cur)
     os.system("sed -i 's/" + mytheme + "/" + theme + "/g' " + path_cur)
     os.system("xelatex " + path_cur)
+    os.system("xelatex " + path_cur)
     os.system("rm " + path_cur[:-4] + ".aux")
     os.system("rm " + path_cur[:-4] + ".log")
     os.system("rm " + path_cur[:-4] + ".nav")
