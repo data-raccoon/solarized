@@ -9,7 +9,7 @@ You may want to call solarize("light") if you need the light version.
 
 __author__ = "Stephan Porz"
 
-import pylab
+import matplotlib as mpl
 
 COLOR = {"base03":  "#002B36",
          "base02":  "#073642",
@@ -81,10 +81,25 @@ def solarize(mode="dark"):
               # ['b', 'g', 'r', 'c', 'm', 'y', 'k']
               "axes.edgecolor": rebase["0"],  # 'k'
               "axes.facecolor": rebase["03"],  # 'w'
-              "axes.lablecolor": rebase["0"],  # 'k'
+              "axes.labelcolor": rebase["0"],  # 'k'
               }
 
-    pylab.rcParams.update(params)
+    mpl.rcParams.update(params)
 
 
-solarize()
+def dark():
+    """dark()
+
+    Changes default colors of matplotlib to solarized dark theme.
+
+    """
+    solarize()
+
+
+def light():
+    """dark()
+
+    Changes default colors of matplotlib to solarized light theme.
+
+    """
+    solarize("light")
