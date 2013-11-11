@@ -9,6 +9,7 @@ __author__ = "Stephan Porz"
 
 def int_to_hex(val_r, val_g, val_b, concat=True, hashtag=False):
     """ TODO
+        reference
     """
     hex_r = "%02x" % val_r
     hex_g = "%02x" % val_g

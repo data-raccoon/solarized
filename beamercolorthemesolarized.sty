@@ -7,13 +7,15 @@
 % USAGE INSTRUCTIONS
 % copy or link this file next to your mytalk.tex file and use
 % \usecolorsheme{solarized} (dark theme by default) or
-% \usecolorsheme[ligth=true]{solarized}
+% \usecolorsheme[ligth=true,invertblockcolor]{solarized}
 
 \mode<presentation>
 
 \def\beamer@solarized@true{true}
 
 \DeclareOptionBeamer{light}{\def\beamer@solarized@lightbool{#1}}
+\DeclareOptionBeamer{invertblockcolor}{\def\beamer@solarized@invertbool{#1}}
+\DeclareOptionBeamer{maincolor}{\def\beamer@solarized@maincolor{#1}}
 \ProcessOptionsBeamer
 
 \def\beamer@solarized@baseoe{002B36}
@@ -56,33 +58,44 @@
     \definecolor{rebase3}{HTML}{\beamer@solarized@basee}
 \fi
 
-\setbeamercolor{structure}{fg=blue}
+\setbeamercolor{main}{fg=\beamer@solarized@maincolor}
 
-\setbeamercolor{palette primary}{fg=yellow,bg=rebase02}
-\setbeamercolor{palette secondary}{fg=magenta,bg=rebase02}
-\setbeamercolor{palette tertiary}{fg=violet,bg=rebase02}
+\setbeamercolor{structure}{use=main,fg=main.fg}
+%\setbeamercolor{structure}{fg=rebase1}
+
+\setbeamercolor{palette primary}{use=main,fg=main.fg,bg=rebase02}
+\setbeamercolor{palette secondary}{fg=rebase1,bg=rebase02}
+\setbeamercolor{palette tertiary}{fg=rebase0,bg=rebase02}
 \setbeamercolor{palette quaternary}{fg=rebase01,bg=rebase02}
 
 \setbeamercolor{normal text}{fg=rebase0,bg=rebase03}
 \setbeamercolor{alerted text}{fg=red}
 \setbeamercolor{example text}{fg=green}
 
-\setbeamercolor{titlelike}{parent=palette quaternary}
+\setbeamercolor{titlelike}{use=main,fg=main.fg,bg=rebase02}
 
-\setbeamercolor{block title}{fg=blue,bg=rebase02}
-\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=block title.bg}
-\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=block title.bg}
+\ifx\beamer@solarized@invertbool\beamer@solarized@true
+    \setbeamercolor{block title}{use=main,fg=rebase03,bg=main.fg}
+    \setbeamercolor{block title alerted}{fg=rebase03,bg=red}
+    \setbeamercolor{block title example}{fg=rebase03,bg=green}
+    \setbeamercolor{block body}{parent=normal text}
+    \setbeamercolor{block body alerted}{parent=normal text}
+    \setbeamercolor{block body example}{parent=normal text}
+ \else
+    \setbeamercolor{block title}{use=main,fg=main.fg,bg=rebase02}
+    \setbeamercolor{block title alerted}{bg=rebase02,fg=red}
+    \setbeamercolor{block title example}{bg=rebase02,fg=green}
+    \setbeamercolor{block body}{parent=normal text,bg=rebase02}
+    \setbeamercolor{block body alerted}{parent=normal text,bg=rebase02}
+    \setbeamercolor{block body example}{parent=normal text,bg=rebase02}
+\fi
 
-\setbeamercolor{block body}{parent=normal text,use=block title,bg=rebase02}
-\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg}
-\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg}
+\setbeamercolor{sidebar}{use=main,fg=main.fg,bg=rebase02}
 
-\setbeamercolor{sidebar}{bg=rebase02}
-
-\setbeamercolor{palette sidebar primary}{fg=palette primary.fg}
-\setbeamercolor{palette sidebar secondary}{fg=palette secondary.fg}
-\setbeamercolor{palette sidebar tertiary}{fg=palette tertiary.fg}
-\setbeamercolor{palette sidebar quaternary}{fg=palette quaternary.fg}
+\setbeamercolor{palette sidebar primary}{use=main,fg=main.fg}
+\setbeamercolor{palette sidebar secondary}{fg=rebase1}
+\setbeamercolor{palette sidebar tertiary}{fg=rebase0}
+\setbeamercolor{palette sidebar quaternary}{fg=rebase01}
 
 \setbeamercolor*{separation line}{}
 \setbeamercolor*{fine separation line}{}
