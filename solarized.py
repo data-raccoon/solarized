@@ -2,13 +2,17 @@
 
 """solarized.py
 
-Import to adust matplotlibs rcParams to use solarized colors (dark as default).
-You may want to call solarize("light") if you need the light version.
+Adust matplotlibs rcParams to use solarized colors.
+    light()
+    dark()
+Provides a way to generate color gradients.
+    gradient()
 
 """
 
 __author__ = "Stephan Porz"
 
+import numpy as np
 import matplotlib as mpl
 
 COLOR = {"base03":  "#002B36",
@@ -103,3 +107,75 @@ def light():
 
     """
     solarize("light")
+
+
+def gradient(colors="br", num):
+    """gradient(colors="br", num)
+
+    Params
+    ------
+    colors: str
+        A string of several char coded standard colors. "yormvbcg"
+    num: number
+        Indicates how many individual colors should be returned.
+
+    Results
+    -------
+    out: ndarray (num, 3)
+        Array of colors (RGB, values 0 to 1).
+
+    """
+    coldict = {}
+    for color in ["yellow", "orange", "red", "magenta", "violet", "blue",
+                  "cyan", "green"]:
+        hex_str = COLOR[color][1:]
+        hex_r = hex_str[:2]
+        hex_g = hex_str[2:4]
+        hex_b = hex_str[4:6]
+        num_r = int(hex_r, 16) / 255.
+        num_g = int(hex_g, 16) / 255.
+        num_b = int(hex_b, 16) / 255.
+        coldict[color[0]] = np.array([num_r, num_g, num_b])
+
+    blue = np.array([38, 139, 220]) / 255.
+    green = np.array([133, 153, 0]) / 255.
+
+    num_colors = len(colors)
+
+    if num_colors > num:
+        palette = np.empty((num, 3))
+        for idx in range(num):
+            palette[idx] = coldict[colors[idx]]
+
+        return palette
+
+    else:
+        num_gradients = num_colors - 1
+        num_part = (num - num_colors) % num_gradients
+        num_all = (num - num_colors) // num_gradients
+        fill_part = range(num_part)
+        palettes = {"R": [], "G": [], "B": []}
+        first = True
+        for gdx in range(num_gradients):
+            if first:
+                c_f = 0
+                first = False
+            else:
+                c_f = 1
+            if gdx in fill_part:
+                cur_num = num_all + 3
+            else:
+                cur_num = num_all + 2
+            palettes["R"].append(np.linspace(coldict[colors[gdx]][0],
+                                             coldict[colors[gdx + 1]][0],
+                                             cur_num)[c_f:])
+            palettes["G"].append(np.linspace(coldict[colors[gdx]][1],
+                                             coldict[colors[gdx + 1]][1],
+                                             cur_num)[c_f:])
+            palettes["B"].append(np.linspace(coldict[colors[gdx]][2],
+                                             coldict[colors[gdx + 1]][2],
+                                             cur_num)[c_f:])
+        palette = np.vstack((np.concatenate(palettes["R"]),
+                             np.concatenate(palettes["G"]),
+                             np.concatenate(palettes["B"]))).T
+        return palette
