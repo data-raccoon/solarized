@@ -109,8 +109,8 @@ def light():
     solarize("light")
 
 
-def gradient(colors="br", num):
-    """gradient(colors="br", num)
+def gradient(num, colors="br"):
+    """gradient(num, colors="br")
 
     Params
     ------
