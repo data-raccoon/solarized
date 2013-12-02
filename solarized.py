@@ -114,10 +114,10 @@ def gradient(num, colors="br"):
 
     Params
     ------
-    colors: str
-        A string of several char coded standard colors. "yormvbcg"
     num: number
         Indicates how many individual colors should be returned.
+    colors: str
+        A string of several char coded standard colors. "yormvbcg"
 
     Results
     -------
